@@ -1,0 +1,9 @@
+@import '../../../styles/main';
+
+.carrot-ext__button {
+  @extend %primary-button;
+  
+  width: 35px;
+  height: 35px;
+  margin: 5px 0;
+}

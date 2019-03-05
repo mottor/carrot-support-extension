@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es5",
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": false,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "build",
+    "lib": ["es6", "es7", "dom"],
+    "baseUrl": "src",
+    "paths": {
+      "app/*": ["./app/*"]
+		},
+		"typeRoots": [
+			"node_modules/@types"
+		],
+		"types": [
+      "chrome",
+      "node"
+		]
+  },
+  "exclude": ["dist", "build", "node_modules"]
+}

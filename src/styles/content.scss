@@ -1,0 +1,17 @@
+@import './colors';
+
+.carrot-ext__container {
+  position: absolute;
+  top: 3px;
+  right: 165px;
+  width: 300px;
+  background: $white;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.carrot-ext__container--hoverable {
+  position: relative;
+}

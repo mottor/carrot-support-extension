@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "KEK",
+  "description": "Fast and simple users data searching",
+  "version": "2.0.0",
+  "background": { 
+    "scripts": ["background.js"]
+  },
+  "content_scripts":[{
+    "matches": ["https://carrotquest.io/panel/1118/conversations"],
+    "js": ["content.js"],
+    "css": ["styles/carrot.css"]
+  }, {
+    "matches": ["https://carrotquest.io/panel/1118/users/*"],
+    "js": ["custom.js"],
+    "run_at": "document_start"
+  }],
+  "permissions": [
+    "contextMenus",
+    "notifications",
+    "activeTab",
+    "https://carrotquest.io/*",
+    "https://lpmotor.ru/*"  
+  ]
+}

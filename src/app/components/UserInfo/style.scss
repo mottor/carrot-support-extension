@@ -1,0 +1,8 @@
+@import '../../../styles/main';
+
+.user-info__panel {
+  @extend %panel;
+
+  right: -15em;
+  width: 350px;
+}

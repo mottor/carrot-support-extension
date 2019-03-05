@@ -1,0 +1,27 @@
+@import "./colors";
+
+%primary-button {
+  border: none;
+  border-radius: 4px;
+  background: $primary;
+  color: $white;
+
+  &:hover {
+    color: $white;
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+  }
+
+  &:active, &:focus {
+    background: $primary-active;
+    outline: 0;
+  }
+}
+
+%panel {
+  position: absolute;
+  top: 45px;
+  z-index: 1337;
+  padding: 10px;
+  background: $white;
+}
