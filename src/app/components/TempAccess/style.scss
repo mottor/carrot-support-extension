@@ -1,0 +1,30 @@
+@import '../../../styles/colors';
+@import '../../../styles/main';
+
+.temp-access {
+  &__panel {
+    @extend %panel;
+    
+    right: -55%;
+    left: 85%;
+    width: 245px;
+  }
+
+  &__input {
+    border-width: 1px;
+    border-radius: 0;
+    border-style: solid;
+    border-color: #e5e5e5;
+    padding: 6px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: none;
+  }
+
+  &__button {
+    @extend %primary-button;
+    padding: 6px 15px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
