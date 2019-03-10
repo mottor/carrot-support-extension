@@ -5,7 +5,7 @@ type Props = {
   data?: string;
 }
 
-export const UserPanel = ({data}: Props): ReactElement<any> => {
+export const UserPanel = ({data}: Props): ReactElement<Props> => {
   const parsedData = () => data.split('\n').map(el => el.trim());
 
   return (

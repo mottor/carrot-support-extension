@@ -1,5 +1,5 @@
 import React, { ReactElement, useRef } from 'react';
-import { Copy } from '../../utils';
+import { Copy } from 'app/utils';
 import './style.scss';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   update: (opts) => void,
 }
 
-export const TempPanel = ({url, update}: Props): ReactElement<any> => {
+export const TempPanel = ({url, update}: Props): ReactElement<Props> => {
   const input = useRef(null);
 
   const _copyHandler = (): void => {

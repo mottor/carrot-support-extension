@@ -1,9 +1,13 @@
 import React, { ReactElement, Fragment } from 'react';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { OLD_ADMIN_URI } from '../../../config';
+import { withHover } from 'app/hoc';
+import { Button, Tooltip } from 'app/ui';
+import { OLD_ADMIN_URI } from 'src/config';
 
-const OldAdmin = ({hovering}: Params): ReactElement<any> => {
+type Props = {
+  hovering?: boolean,
+}
+
+const OldAdmin = ({hovering}: Props): ReactElement<Props> => {
   const _name: string = 'S';
   const _description: string = 'Поиск в старой админке';
 

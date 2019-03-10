@@ -1,9 +1,13 @@
 import React, { ReactElement, Fragment } from 'react';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { CARROT_LEADS_URI } from '../../../config';
+import { withHover } from 'app/hoc';
+import { Button, Tooltip } from 'app/ui';
+import { CARROT_LEADS_URI } from 'src/config';
 
-const searchLeads = ({hovering}: Params): ReactElement => {
+type Props = {
+  hovering?: boolean,
+}
+
+const searchLeads = ({hovering}: Props): ReactElement<Props> => {
   const _name: string = 'L';
   const _description: string = 'Поиск в разделе лиды';
 

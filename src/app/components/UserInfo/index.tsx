@@ -1,9 +1,10 @@
 import React, { PureComponent, ReactNode, Fragment } from 'react';
 import ClickOutside from 'react-click-outside';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { getUserData } from '../../services/http/users';
+import { getUserData } from 'app/services/http/users';
+import { UserInfoButton } from './button';
 import { UserPanel } from './panel';
+
+type Props = {}
 
 type State = {
   isPanelActive: boolean;
@@ -12,7 +13,7 @@ type State = {
   icon: string;
 }
 
-class userInfo extends PureComponent<Params, State> {
+export class UserInfo extends PureComponent<Props, State> {
   _icon: string = 'fa fa-info';
   _loadingIcon: string = 'fa fa-circle-o-notch fa-spin fa-fw';
   _description: string = 'Информация о пользователе';
@@ -24,7 +25,7 @@ class userInfo extends PureComponent<Params, State> {
     icon: this._icon,
   }
 
-  _handleClick = async () => {
+  _handleClick = async (): Promise<void> => {
     if (this.state.isPanelActive) {
       await this.setState({ isPanelActive: false });
       return;
@@ -43,26 +44,23 @@ class userInfo extends PureComponent<Params, State> {
     }
   }
 
-  _onClickOutside = () => this.setState({isPanelActive: false, isLoading: false, data: '', icon: this._icon})
+  _onClickOutside = (): void => this.setState({isPanelActive: false, isLoading: false, data: '', icon: this._icon})
 
   render (): ReactNode {
-    const { hovering } = this.props;
     const { icon, isPanelActive, data } = this.state;
 
     return (
       <Fragment>
         <ClickOutside onClickOutside={this._onClickOutside}>
-          <Button
+          <UserInfoButton 
             icon={icon}
             onClick={this._handleClick}
+            description={this._description}
           />
           { isPanelActive && <UserPanel data={data}/> }
         </ClickOutside>
-
-        { hovering && <Tooltip description={this._description} /> }
       </Fragment>
     )
   }
 }
 
-export const UserInfo = withHover(userInfo);

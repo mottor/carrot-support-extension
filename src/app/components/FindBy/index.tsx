@@ -1,9 +1,13 @@
 import React, { ReactElement, Fragment } from 'react';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { OLD_ADMIN_URI } from '../../../config';
+import { withHover } from 'app/hoc';
+import { Button, Tooltip } from 'app/ui';
+import { OLD_ADMIN_URI } from 'src/config';
 
-const findBy = ({hovering}: Params): ReactElement<any> => {
+type Props = {
+  hovering?: boolean,
+}
+
+const findBy = ({ hovering }: Props): ReactElement<Props> => {
   const _icon: string = 'fa fa-search';
   const _description: string = 'Поиск по email или id';
 

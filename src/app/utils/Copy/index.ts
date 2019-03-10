@@ -1,4 +1,4 @@
-export const Copy = (data: string = '') => {
+export const Copy = (data: string = ''): void => {
   const el = document.createElement('textarea');
   el.value = data;
   document.body.appendChild(el);

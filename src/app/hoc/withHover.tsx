@@ -1,16 +1,29 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ComponentType, ReactNode } from 'react';
 
-export type Params = {
-  hovering: boolean,
+type State = {
+  hovering?: boolean,
 }
 
-export const withHover = Component => {
-  return class withHover extends PureComponent<{}, Params> {
-    state: Params = { hovering: false }
-    _mouseOver = () => this.setState({ hovering: true })
-    _mouseOut = () => this.setState({ hovering: false })
+type OnChangeNative = {
+  onChange?: React.ChangeEventHandler<HTMLInputElement>,
+  hovering?: boolean,
+  description?: string,
+  icon?: string,
+  onClick?: () => void
+}
+
+type OnChangeHoFProps = {
+  hovering?: boolean,
+  onChange?: (value: string) => void;
+}
+
+export function withHover<T extends OnChangeNative> (Component: ComponentType<T>) {
+  return class withHover extends PureComponent<OnChangeHoFProps & T, State> {
+    state: State = { hovering: false }
+    _mouseOver = (): void => this.setState({ hovering: true })
+    _mouseOut = (): void => this.setState({ hovering: false })
     
-    render () {
+    render(): ReactNode {
       const props = {
         hovering: this.state.hovering,
         ...this.props,

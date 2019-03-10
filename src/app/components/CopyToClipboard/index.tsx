@@ -1,9 +1,13 @@
 import React, { ReactElement, Fragment } from 'react';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { Copy } from '../../utils';
+import { withHover } from 'app/hoc';
+import { Button, Tooltip } from 'app/ui';
+import { Copy } from 'app/utils';
 
-const copyToClipboard = ({hovering}: Params): ReactElement<any> => {
+type Props = {
+  hovering?: boolean,
+}
+
+const copyToClipboard = ({ hovering }: Props): ReactElement<Props> => {
   const _icon: string = 'fa fa-copy';
   const _description: string = 'Скопировать email';
 

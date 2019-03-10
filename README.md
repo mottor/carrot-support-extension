@@ -175,3 +175,5 @@ export const ButtonComponent({icon}: Props) => {
     1.2.7 Added button for searching in Leads page <br />
 ### 2.0.0
 2. `Code improvements (Huge refactoring)` <br />
+  2.0.1 Supported conversation page <br />
+  2.0.2 Added leads finder <br />
