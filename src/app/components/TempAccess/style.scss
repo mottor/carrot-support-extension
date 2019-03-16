@@ -1,13 +1,14 @@
-@import '../../../styles/colors';
-@import '../../../styles/main';
+@import '~src/styles/colors';
+@import '~src/styles/main';
 
 .temp-access {
   &__panel {
     @extend %panel;
     
     right: -55%;
-    left: 85%;
-    width: 245px;
+    left: 70%;
+    width: 255px;
+    padding: 10px 15px;
   }
 
   &__input {

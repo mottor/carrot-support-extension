@@ -1,9 +1,13 @@
 import React, { ReactElement, Fragment } from 'react';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { SITES_LIST_URI } from '../../../config';
+import { withHover } from 'app/hoc';
+import { Button, Tooltip } from 'app/ui';
+import { SITES_LIST_URI } from 'src/config';
 
-const sitesList = ({hovering}: Params): ReactElement<any> => {
+type Props = {
+  hovering?: boolean,
+}
+
+const sitesList = ({hovering}: Props): ReactElement<Props> => {
   const _icon: string = 'fa fa-list-alt';
   const _description: string = 'Перейти в список сайтов пользователя';
 

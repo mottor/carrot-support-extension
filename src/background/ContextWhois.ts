@@ -1,5 +1,5 @@
-import { BackgroundContextMenu, IBackgroundContentMenuProps } from '../models/BackgroundContextMenu';
-import { WHOIS_URI } from '../config';
+import { BackgroundContextMenu, IBackgroundContentMenuProps } from 'src/models/BackgroundContextMenu';
+import { WHOIS_URI } from 'src/config';
 
 class ContextWhois extends BackgroundContextMenu {
   constructor (props: IBackgroundContentMenuProps) {

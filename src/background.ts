@@ -1,7 +1,7 @@
-import { contextSearchSite } from './background/ContextSearchSite';
-import { contextWhois } from './background/ContextWhois';
-import { ChromeNotification } from './models/Notification';
-import { IBackgroundRequest } from './models/IBackgroundRequest';
+import { contextSearchSite } from 'src/background/ContextSearchSite';
+import { contextWhois } from 'src/background/ContextWhois';
+import { ChromeNotification } from 'src/models/Notification';
+import { IBackgroundRequest } from 'src/models/IBackgroundRequest';
 
 chrome.extension.onRequest.addListener(
   (request: IBackgroundRequest) => {

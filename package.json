@@ -1,12 +1,11 @@
 {
   "name": "chrome-carrotquest-extension",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "A chrome extension for carrotquest",
   "author": "Dmitry Timshin <timshin.dm@gmail.com>",
   "license": "UNLICENCED",
   "private": true,
   "scripts": {
-    "zipping": "node deploy/zip.js",
     "build": "rimraf ./dist && webpack -p --progress --colors",
     "dev": "rimraf ./dist && webpack --watch"
   },

@@ -1,9 +1,9 @@
-import { BackgroundContextMenu, IBackgroundContentMenuProps } from '../models/BackgroundContextMenu';
-import { FIND_SITE_URI } from '../config';
+import { BackgroundContextMenu, IBackgroundContentMenuProps } from 'src/models/BackgroundContextMenu';
+import { FIND_SITE_URI } from 'src/config';
 
 class ContextSearchSite extends BackgroundContextMenu {
   constructor (props: IBackgroundContentMenuProps) {
-    super(props)
+    super(props);
   }
 
   onclick (info ) {

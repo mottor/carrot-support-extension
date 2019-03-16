@@ -8,7 +8,7 @@ import {
   TempAccess,
   UserInfo,
   SearchLeads
-} from '../../components';
+} from 'app/components';
 
 export class App extends PureComponent {
   componentDidCatch(): void {

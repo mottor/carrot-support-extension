@@ -1,9 +1,9 @@
 import React, { PureComponent, ReactNode, Fragment } from 'react';
-import ClickOutside from 'react-click-outside';
-import { withHover, Params } from '../../hoc/withHover';
-import { Button, Tooltip } from '../../ui';
-import { getTempAccessLink } from '../../services/http/users';
+import { getTempAccessLink } from 'app/services/http/users';
+import { TempAccessButton } from './button';
 import { TempPanel } from './panel';
+
+type Props = {}
 
 type State = {
   isLoading: boolean,
@@ -12,31 +12,31 @@ type State = {
   icon: string,
 }
 
-class tempAccess extends PureComponent<Params, State> {
+export class TempAccess extends PureComponent<Props, State> {
   _icon: string = 'fa fa-clock-o';
   _loadingIcon: string = 'fa fa-circle-o-notch fa-spin fa-fw';
   _successIcon: string = 'fa fa-check';
   _description: string = 'Выдать временный доступ';
 
-  state = {
+  state: State = {
     isLoading: false,
     isLoaded: false,
     link: '',
     icon: this._icon,
   }
 
-  _update = (state: State) => {
+  _update = (state: State): void => {
     this.setState(state);
   }
 
-  _handleClick = () => {
+  _handleClick = (): void => {
     this.setState({
       isLoading: true,
       icon: this._loadingIcon,
     }, this._request);
   }
 
-  _request = async () => {
+  _request = async (): Promise<void> => {
     try {
       const userEmail = document.querySelector('span.email').innerHTML;
       const operatorEmail = encodeURIComponent(document.querySelector('.nav2-container .email').innerHTML.split('@')[0]);
@@ -56,30 +56,21 @@ class tempAccess extends PureComponent<Params, State> {
     }
   }
 
+  _onClickOutside = (): void => this.setState({ isLoading: false, isLoaded: false, icon: this._icon, link: '' })
+
   render (): ReactNode {
-    const { hovering } = this.props;
     const { icon, isLoaded, link } = this.state;
 
     return (
       <Fragment>
-        <ClickOutside onClickOutside={
-          () => this.setState({
-            isLoading: false,
-            isLoaded: false,
-            icon: this._icon,
-            link: ''
-          })}>
-          <Button
-            onClick={this._handleClick}
-            icon={icon}
-          />
-          { isLoaded && <TempPanel url={link} update={this._update}/> }
-        </ClickOutside>
+        <TempAccessButton
+          onClick={this._handleClick}
+          icon={icon}
+          description={this._description}
+        />
 
-        { hovering && <Tooltip description={this._description} /> }
+        { isLoaded && <TempPanel url={link} update={this._update}/> }
       </Fragment>
     )
   }
 }
-
-export const TempAccess = withHover(tempAccess);
