@@ -13,4 +13,4 @@ document.body.appendChild(container);
 render(
   <App />,
   document.querySelector('.carrot-ext__container') as HTMLElement
-)
+);

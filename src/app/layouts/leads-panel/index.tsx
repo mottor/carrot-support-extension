@@ -16,7 +16,7 @@ export class LeadsPanel extends PureComponent<{}, State> {
 
   state: State = {
     isValidLead: false
-  }
+  };
 
   componentDidMount(): void {
     const table: HTMLTableElement = document.querySelector('.r_float.lead-details__block-data table');
@@ -28,14 +28,15 @@ export class LeadsPanel extends PureComponent<{}, State> {
       this._sourcesWhiteList.includes(sourceSiteLead) ||
       this._sourcesWhiteList.includes(sourcePageLead)
     ) {
-      this.setState({ isValidLead: true })
+      this.setState({ isValidLead: true });
     }
   }
 
   _handleClick = (): void => {
     const table: HTMLTableElement = document.querySelector('#lead_form_well1 table');
     const data = TableParse(table);
-    const email: string = data['Email'];
+    const emailKey = 'Email';
+    const email: string = data[emailKey];
     window.open(`${NEW_ADMIN_URI}${email}`, '_blank').focus();
   }
 
@@ -43,8 +44,8 @@ export class LeadsPanel extends PureComponent<{}, State> {
     const { isValidLead } = this.state;
     return (
       <Fragment>
-        { isValidLead && <Button onClick={this._handleClick} name={this._name} /> }
+        {isValidLead && <Button onClick={this._handleClick} name={this._name} />}
       </Fragment>
-    )
+    );
   }
 }

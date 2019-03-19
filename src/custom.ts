@@ -2,8 +2,9 @@ const inputFinder = (): Promise<HTMLInputElement> => {
   return new Promise<HTMLInputElement> (resolve => {
     const intId: number = window.setInterval(() => {
       const inp: HTMLInputElement = document.querySelector('input[name="search"]') as HTMLInputElement;
+      const dataTable: HTMLTableElement = document.querySelector('table');
   
-      if (inp !== null) {
+      if (inp && dataTable) {
         const userEmail: string = (new URL(window.location.href).searchParams).get('user');
         inp.value = userEmail.slice(0 ,15); // потому что в инпут можно ввести только 15 символов
   

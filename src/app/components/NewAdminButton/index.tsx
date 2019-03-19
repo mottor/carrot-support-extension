@@ -5,7 +5,7 @@ import { NEW_ADMIN_URI } from 'src/config';
 
 type Props = {
   hovering?: boolean,
-}
+};
 
 const NewAdmin = ({ hovering }: Props): ReactElement<Props> => {
   const _name: string = 'S+';
@@ -14,7 +14,7 @@ const NewAdmin = ({ hovering }: Props): ReactElement<Props> => {
   const _handleClick = (): void => {
     const email: string = document.querySelector('span.email').innerHTML;
     window.open(`${NEW_ADMIN_URI}${email}`, '_blank').focus();
-  }
+  };
 
   return (
     <Fragment>
@@ -22,9 +22,9 @@ const NewAdmin = ({ hovering }: Props): ReactElement<Props> => {
         onClick={_handleClick}
         name={_name}
       />
-      { hovering && <Tooltip description={_description} /> }
+      {hovering && <Tooltip description={_description} />}
     </Fragment>
-  )
-}
+  );
+};
 
 export const NewAdminButton = withHover(NewAdmin);

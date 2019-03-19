@@ -5,7 +5,7 @@ import { OLD_ADMIN_URI } from 'src/config';
 
 type Props = {
   hovering?: boolean,
-}
+};
 
 const findBy = ({ hovering }: Props): ReactElement<Props> => {
   const _icon: string = 'fa fa-search';
@@ -19,7 +19,7 @@ const findBy = ({ hovering }: Props): ReactElement<Props> => {
     }
 
     window.open(`${OLD_ADMIN_URI}${user}`, '_blank').focus();
-  }
+  };
 
   return (
     <Fragment>
@@ -27,10 +27,9 @@ const findBy = ({ hovering }: Props): ReactElement<Props> => {
         onClick={_handleClick}
         icon={_icon}
       />
-      { hovering && <Tooltip description={_description} /> }
+      {hovering && <Tooltip description={_description} />}
     </Fragment>
-  )
+  );
 };
-
 
 export const FindBy = withHover(findBy);
