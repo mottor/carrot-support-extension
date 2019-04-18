@@ -7,9 +7,9 @@ type Props = {
   onClick: () => Promise<void>,
   description: string,
   hovering?: boolean,
-}
+};
 
-const button = ({ icon, onClick, description, hovering }: Props):ReactElement<Props> => {
+const button = ({ icon, onClick, description, hovering }: Props): ReactElement<Props> => {
   return (
     <Fragment>
       <Button
@@ -17,9 +17,9 @@ const button = ({ icon, onClick, description, hovering }: Props):ReactElement<Pr
         onClick={onClick} 
       />
 
-      { hovering && <Tooltip description={description} /> }
+      {hovering && <Tooltip description={description} />}
     </Fragment>
-  )
-}
+  );
+};
 
 export const UserInfoButton = withHover(button);

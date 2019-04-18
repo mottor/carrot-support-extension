@@ -5,26 +5,26 @@ import { Copy } from 'app/utils';
 
 type Props = {
   hovering?: boolean,
-}
+};
 
 const copyToClipboard = ({ hovering }: Props): ReactElement<Props> => {
-  const _icon: string = 'fa fa-copy';
-  const _description: string = 'Скопировать email';
+  const icon: string = 'fa fa-copy';
+  const description: string = 'Скопировать email';
 
-  const _handleClick = (): void => {
+  const handleClick = (): void => {
     const email: string = document.querySelector('span.email').innerHTML;
     Copy(email);
-  }
+  };
 
   return (
     <Fragment>
       <Button 
-        onClick={_handleClick}
-        icon={_icon}
+        onClick={handleClick}
+        icon={icon}
       />
-      { hovering && <Tooltip description={_description} /> }
+      {hovering && <Tooltip description={description} />}
     </Fragment>
-  )
-}
+  );
+};
 
 export const CopyToClipboard = withHover(copyToClipboard);

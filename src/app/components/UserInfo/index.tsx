@@ -4,14 +4,14 @@ import { getUserData } from 'app/services/http/users';
 import { UserInfoButton } from './button';
 import { UserPanel } from './panel';
 
-type Props = {}
+type Props = {};
 
 type State = {
   isPanelActive: boolean;
   isLoading: boolean;
   data: string;
   icon: string;
-}
+};
 
 export class UserInfo extends PureComponent<Props, State> {
   _icon: string = 'fa fa-info';
@@ -23,7 +23,7 @@ export class UserInfo extends PureComponent<Props, State> {
     isLoading: false,
     data: '',
     icon: this._icon,
-  }
+  };
 
   _handleClick = async (): Promise<void> => {
     if (this.state.isPanelActive) {
@@ -37,14 +37,14 @@ export class UserInfo extends PureComponent<Props, State> {
       const data = await getUserData({ userEmail });
       this.setState({ isLoading: false, isPanelActive: true, data, icon: this._icon });
     } catch (error) {
-      this.setState({isPanelActive: false, isLoading: false, data: '', icon: this._icon,}, () => {
-        console.log(error);
+      this.setState({ isPanelActive: false, isLoading: false, data: '', icon: this._icon }, () => {
+        console.log(error); // tslint:disable-line
         chrome.extension.sendRequest({type: 'alert', title: 'Ой!', message: 'Возникла ошибка при запросе'});
       });
     }
   }
 
-  _onClickOutside = (): void => this.setState({isPanelActive: false, isLoading: false, data: '', icon: this._icon})
+  _onClickOutside = (): void => this.setState({isPanelActive: false, isLoading: false, data: '', icon: this._icon});
 
   render (): ReactNode {
     const { icon, isPanelActive, data } = this.state;
@@ -57,10 +57,9 @@ export class UserInfo extends PureComponent<Props, State> {
             onClick={this._handleClick}
             description={this._description}
           />
-          { isPanelActive && <UserPanel data={data}/> }
+          {isPanelActive && <UserPanel data={data}/>}
         </ClickOutside>
       </Fragment>
-    )
+    );
   }
 }
-

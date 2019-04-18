@@ -2,10 +2,17 @@ import React, { ReactElement, useRef } from 'react';
 import { Copy } from 'app/utils';
 import './style.scss';
 
+export type Opts = {
+  isLoaded: boolean,
+  isLoading: boolean,
+  icon: string,
+  link: string,
+};
+
 type Props = {
   url: string,
-  update: (opts) => void,
-}
+  update: (opts: Opts) => void,
+};
 
 export const TempPanel = ({url, update}: Props): ReactElement<Props> => {
   const input = useRef(null);
@@ -13,8 +20,8 @@ export const TempPanel = ({url, update}: Props): ReactElement<Props> => {
   const _copyHandler = (): void => {
     const data: string = input.current.value;
     Copy(data);
-    update({ data: '', isLoaded: false, isLoading: false, icon: 'fa fa-clock-o' });
-  }
+    update({ link: '', isLoaded: false, isLoading: false, icon: 'fa fa-clock-o' });
+  };
 
   return (
     <div className="temp-access__panel">
@@ -30,5 +37,5 @@ export const TempPanel = ({url, update}: Props): ReactElement<Props> => {
         Copy
       </button>
     </div>
-  )
-}
+  );
+};

@@ -3,7 +3,7 @@ import './style.scss';
 
 type Props = {
   data?: string;
-}
+};
 
 export const UserPanel = ({data}: Props): ReactElement<Props> => {
   const parsedData = () => data.split('\n').map(el => el.trim());
@@ -14,5 +14,5 @@ export const UserPanel = ({data}: Props): ReactElement<Props> => {
         <div key={idx} dangerouslySetInnerHTML={{__html: element }} />
       )) }
     </div>
-  )
+  );
 };

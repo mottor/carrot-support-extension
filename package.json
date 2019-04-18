@@ -6,8 +6,10 @@
   "license": "UNLICENCED",
   "private": true,
   "scripts": {
+    "zipping": "node deploy/zip.js",
     "build": "rimraf ./dist && webpack -p --progress --colors",
-    "dev": "rimraf ./dist && webpack --watch"
+    "dev": "rimraf ./dist && webpack --watch",
+    "lint": "tslint --project tsconfig.json 'src/**/*.tsx'"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.71",
@@ -29,6 +31,8 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "tslint": "^5.13.1",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.3.3333",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0",

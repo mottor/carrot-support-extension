@@ -5,7 +5,7 @@ import { SITES_LIST_URI } from 'src/config';
 
 type Props = {
   hovering?: boolean,
-}
+};
 
 const sitesList = ({hovering}: Props): ReactElement<Props> => {
   const _icon: string = 'fa fa-list-alt';
@@ -14,7 +14,7 @@ const sitesList = ({hovering}: Props): ReactElement<Props> => {
   const _handleClick = (): void => {
     const userId: string = document.querySelector('.prop-value[ng-bind *= user_id]').innerHTML;
     window.open(`${SITES_LIST_URI}${userId}`, '_blank').focus();
-  }
+  };
 
   return (
     <Fragment>
@@ -22,9 +22,9 @@ const sitesList = ({hovering}: Props): ReactElement<Props> => {
         onClick={_handleClick}
         icon={_icon}
       />
-      { hovering && <Tooltip description={_description} /> }
+      {hovering && <Tooltip description={_description} />}
     </Fragment>
-  )
+  );
 };
 
 export const SitesList = withHover(sitesList);

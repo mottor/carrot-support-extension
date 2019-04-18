@@ -27,6 +27,6 @@ export class App extends PureComponent {
         <UserInfo />
         <SearchLeads />
       </Fragment>
-    )
+    );
   }
 }

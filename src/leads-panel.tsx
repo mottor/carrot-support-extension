@@ -17,5 +17,5 @@ if (container) {
   render(
     <LeadsPanel />,
     panelContainer
-  )
+  );
 }
