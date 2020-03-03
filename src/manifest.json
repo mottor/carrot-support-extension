@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "KEK",
   "description": "Fast and simple users data searching",
-  "version": "2.0.2",
+  "version": "2.0.21",
   "background": { 
     "scripts": ["background.js"]
   },
